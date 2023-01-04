@@ -100,6 +100,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.animate :hover{
+  display: inline-block;
+  transition: transform 200ms;
+  margin-left:15em
+}
 
 @media (prefers-color-scheme: dark) {
   html {
