@@ -1,5 +1,5 @@
 
-import { Avatar, Box, Card, CardHeader, Flex, Heading, HStack, Image, Text, Skeleton, SkeletonCircle, SkeletonText, Divider } from "@chakra-ui/react"
+import { Avatar, Box, Card, CardHeader, Flex, Heading, HStack, Image, Text, Skeleton, SkeletonCircle, SkeletonText, Divider, Highlight, LinkOverlay, Link } from "@chakra-ui/react"
 import React, { useState, useEffect } from 'react';
 interface Props {
   name?: string
@@ -22,17 +22,20 @@ export default function UserInfo({ login }: Props) {
   }, [])
 
   return (
-    <><Divider w={"100%"} marginBottom={"10"}/>
-      <HStack spacing={"3"} justifyContent={"space-between"}>
-        
+    <>
+    <Divider w={"100%"} marginBottom={"10"}/>
+    <Text marginBottom={"1rem"}>Sobre o autor</Text>
+    <Link href={`http://github.com/${user.login}`}>
+      <HStack spacing={"4"} justifyContent={"start"}>
         <SkeletonCircle size="10" isLoaded={!loading}><Avatar src={user.avatar_url} /></SkeletonCircle>
         <Box>
         <Skeleton isLoaded={!loading}><Heading size={"xs"}>{loading? "Carregando" :user.login}</Heading></Skeleton>
           <Skeleton isLoaded={!loading}><Text fontSize={"xs"}>{loading? "Carregando" :user.bio}</Text></Skeleton>
         </Box>
-       
+        
       </HStack>
-    </>
+      </Link>
+      </>
   )
 }
 

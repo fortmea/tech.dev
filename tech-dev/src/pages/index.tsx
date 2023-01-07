@@ -7,7 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   var dados = [
-    { "title": "bbb", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" }, { "title": "aaaaaa", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" }, { "title": "ccc", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" }, { "title": "ddd", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" },]
+    { "title": "Como comprar diamante no freefire", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" },
+     { "title": "Hack dragon city", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah"},
+      { "title": "ccc", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" },
+       { "title": "ddd", "content": "Conteúdo", "autor": "fortmea", "resumo": "Exemplo resumo blahblah" },]
 
 
   return (
@@ -15,13 +18,11 @@ export default function Home() {
       <Head>
         <title>tech.dev.br</title>
         <meta name="description" content="Compartilhe suas experiências" />
-
-
       </Head>
       <NavBar />
       <main >
-        <Container>
-          <Posts data={dados}></Posts>
+        <Container maxW={"container.lg"}>
+          <Posts data={dados}/>
         </Container>
         <Divider border={"0.5em"} w={"50%"} marginLeft={"auto"} marginRight={"auto"} marginTop={"1em"}></Divider>
       </main>
