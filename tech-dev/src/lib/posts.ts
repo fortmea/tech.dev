@@ -4,7 +4,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import { uid } from 'uid'
 import fs from 'fs'
-const postsDirectory = path.join(process.cwd(), 'src/posts')
+const postsDirectory = path.join(process.cwd(), 'src/posts/posts')
 interface postData {
     titulo?: string,
     conteudo?: string,

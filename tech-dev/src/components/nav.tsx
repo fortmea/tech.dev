@@ -15,7 +15,12 @@ export default function NavBar({ data }: postsInterface) {
     return (
         <Container maxW={"container.lg"} padding={4} marginTop={"16px"}>
 
-            {data.length > 0 ? < Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}> tech.dev.br - Compartilhe suas experiências</Link > : <Button onClick={() => {window.location.href="/" }}><ArrowBackIcon />{title}</Button>
+            {data.length > 0 ?
+                < Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}> tech.dev.br - Compartilhe suas experiências
+                </Link > : <Button onClick={() => { window.location.href = "/" }}>
+                    <ArrowBackIcon />
+                    <Text size={"sm"}>Voltar</Text>
+                </Button>
             }
             {data.length > 0 ? <SearchBox data={data}></SearchBox> : <></>}
             < MenuToggle toggle={toggle} isOpen={isOpen} />
