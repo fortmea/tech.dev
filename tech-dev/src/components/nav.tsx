@@ -13,7 +13,7 @@ export default function NavBar({ data }: postsInterface) {
         setTitle(document.title.replace(" - tech.dev.br", ""))
     }, [0])
     return (
-        <Container maxW={"container.lg"} padding={4}>
+        <Container maxW={"container.lg"} padding={4} marginTop={"16px"}>
 
             {data.length > 0 ? < Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}> tech.dev.br - Compartilhe suas experiências</Link > : <Button onClick={() => {window.location.href="/" }}><ArrowBackIcon />{title}</Button>
             }
