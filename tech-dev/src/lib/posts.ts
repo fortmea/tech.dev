@@ -68,6 +68,7 @@ export async function getPostData(id: string) {
         .use(html)
         .process(matterResult.content)
     var contentHtml = processedContent.toString()
+    var contentMD = matterResult.content
     var newcontent = "";
     var ids: any[] = []
     var titulos: any[] = []
@@ -87,7 +88,7 @@ export async function getPostData(id: string) {
     // Combine the data with the id and contentHtml
     //console.log(ids)
     return {
-        contentHtml,
+        contentMD,
         ...matterResult.data as postData,
     }
 }

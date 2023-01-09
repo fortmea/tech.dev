@@ -6,9 +6,9 @@ export default function Document() {
   
   return (
     <Html lang="pt">
-      <Head><link rel="icon" href="../public/favicon.ico" /></Head>
+      <Head><link rel="icon" href="/images/brazil-flag-round-icon-256.png" /></Head>
       <body>
-      <ColorModeScript initialColorMode={'dark'} />
+      <ColorModeScript initialColorMode={'light'} />
         <Main />
         <NextScript />
       </body>

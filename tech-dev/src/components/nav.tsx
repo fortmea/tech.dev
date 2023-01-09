@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-import { Link, Box, Flex, Text, Button, Stack, useColorMode, CloseButton, StackItem, Container } from "@chakra-ui/react";
-import { HamburgerIcon } from '@chakra-ui/icons'
+import React, { useState, useEffect } from "react";
+import { Link, Box, Flex, Text, Button, Stack, useColorMode, CloseButton, StackItem, Container, LinkOverlay } from "@chakra-ui/react";
+import { ArrowBackIcon, HamburgerIcon } from '@chakra-ui/icons'
 import SearchBox from "./search";
 import { postsInterface } from "../lib/interfaces";
 
-export default function NavBar({data}: postsInterface){
-
+export default function NavBar({ data }: postsInterface) {
+    const [title, setTitle] = useState("")
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     //console.log(data)
+    useEffect(() => {
+        setTitle(document.title.replace(" - tech.dev.br", ""))
+    }, [0])
     return (
-        <NavBarContainer>
-            <Container maxW={"container.lg"} className="glass" padding={4}>
-                <Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}>tech.dev.br - Compartilhe suas experiências</Link>
-                <SearchBox data={data}></SearchBox>
-                <MenuToggle toggle={toggle} isOpen={isOpen} />
-                <MenuLinks isOpen={isOpen} />
-            </Container>
-        </NavBarContainer>
+        <Container maxW={"container.lg"} padding={4}>
+
+            {data.length > 0 ? < Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}> tech.dev.br - Compartilhe suas experiências</Link > : <Button onClick={() => {window.location.href="/" }}><ArrowBackIcon />{title}</Button>
+            }
+            {data.length > 0 ? <SearchBox data={data}></SearchBox> : <></>}
+            < MenuToggle toggle={toggle} isOpen={isOpen} />
+            <MenuLinks isOpen={isOpen} />
+        </Container >
     );
 };
 

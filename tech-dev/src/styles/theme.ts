@@ -6,31 +6,32 @@ const sourceCode = Source_Code_Pro({
   weight: "400"
 })
 export const personalizedTheme = extendTheme({
-  fonts:{
+  fonts: {
     body: sourceCode.style.fontFamily
   },
-  config:{
+  config: {
     disableTransitionOnChange: false
   },
-    colors:{
-        primary: "#1C002E",
-        secondary: "#F9F871",
-        highlight: "#F6B152",
-        tertiary: "#611846",
-        info: "#285749", 
-        alert: "#B24842",
-        danger: "#FF8A5E"
+  colors: {
+    primary: "#1C002E",
+    secondary: "#F9F871",
+    highlight: "#F6B152",
+    tertiary: "#611846",
+    info: "#285749",
+    alert: "#B24842",
+    danger: "#FF8A5E"
 
-    },
-    styles: {
-        global: (props: any) => ({
-          body: {
-          
-            transitionProperty: "background-color",
-            transitionDuration: "200ms",
-            bg: mode("#FFFFFF","#353535")(props),
-            lineHeight: "base",
-          }
-        })
-      },
+  },
+  styles: {
+    global: (props: any) => ({
+
+      body: {
+
+        transitionProperty: "background-color",
+        transitionDuration: "200ms",
+        bg: mode("#FFFFFF", "#353535")(props),
+        lineHeight: "base",
+      }
+    })
+  },
 })

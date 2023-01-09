@@ -1,15 +1,15 @@
 export interface postData {
     titulo?: string,
-    content?: string,
-    date?: Date,
+    date?: string,
     autor?: string,
     resumo?: string,
     data?: postData,
-    id: string
+    id: string,
+    contentMD?: string
 }
 export interface postsInterface {
     data: any
 }
-export interface stringList{
+export interface postList{
     data: postData[]
 }

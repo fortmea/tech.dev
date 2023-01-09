@@ -1,40 +1,43 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import { Box, HStack, Input, Link, Stack } from "@chakra-ui/react";
+import { CloseIcon, SearchIcon } from "@chakra-ui/icons";
+import { Box, Button, Container, HStack, Input, InputGroup, InputRightAddon, Link, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { postsInterface, stringList } from "../lib/interfaces";
+import { postData, postList, postsInterface } from "../lib/interfaces";
 //react searchbox using chakra-ui
-export default function SearchBox(titles: stringList) {
-    const [query, setQuery] = useState("");
+var inicial: postList = { data: [] }
+export default function SearchBox(titles: postList) {
     const [focus, setFocus] = useState(false)
-    var listaTitulos: string[] = []
-    for (var post in titles.data) {
-        listaTitulos.push(titles.data[post].titulo!!)
+    const [listaTitulos, setListaTitulos] = useState([] as postData[])
+    function initial() {
+        var parcial: postList = { data: [] }
+        for (var post in titles.data) {
+            parcial.data.push(titles.data[post])
+        }
+        inicial = { data: parcial.data.slice() }
+        setListaTitulos(parcial.data)
+        parcial.data = []
     }
-    useEffect(() => {
-        listaTitulos.filter((el: string) => {
-            if (query === '') {
-                return el;
-            }
-            else {
-                return el.toLowerCase().includes(query)
-            }
-        })
-    }, [query])
+    function filterArray(query: string) {
+        var parcial = inicial.data.slice()
+        parcial = parcial.filter((post: postData) => post.titulo!!.toLowerCase().includes(query.toLowerCase()))
+        setListaTitulos(parcial)
+    }
+    useEffect(() => { initial() }, [0])
     return (
-        <Box >
-            <HStack>
-                <Input variant='filled' value={query} onChange={(e) => { setQuery(e.currentTarget.value); console.log(e.currentTarget.value) }} w={"100%"} onFocus={() => { setFocus(true); console.log(focus) }} onBlur={() => { setFocus(false); console.log(focus) }} /><SearchIcon />
+        <Box position={"relative"} >
+            <HStack >
+                <InputGroup><Input placeholder="Pesquise artigos" variant='filled' onClick={() => setFocus(true)} onTouchStart={() => setFocus(true)} onChange={(e) => { filterArray(e.currentTarget.value) }} w={"100%"} /><InputRightAddon onClick={() => (setFocus(!focus))}>{focus ? <CloseIcon /> : <SearchIcon />}</InputRightAddon></InputGroup>
             </HStack>
-            <Box display={focus ? "block" : "none"} zIndex={999} className="glass" w="100%" position={"absolute"} padding={4} marginTop={4}>
-                <Stack  w={"100%"} >
-                    {listaTitulos.map((titulo: string) => (
-                        <Link w={"100%"}>
-                            {titulo}
-                            
-                        </Link>
-                    ))}
+            <Container display={focus ? "block" : "none"} onPointerEnter={() => { setFocus(true) }} onPointerLeave={() => setFocus(false)} zIndex={999} className="glass" position={"absolute"} padding={4} marginTop={4}>
+                <Stack w={"100%"} >
+                    {(listaTitulos.length > 0) ?
+
+                        listaTitulos.map((post: postData) => (
+                            <Link w={"100%"} key={post.id} href={`/posts/${post.id}`} >
+                                {post.titulo}
+                            </Link>
+                        )) : <Text>Nenhum resultado encontrado</Text>}
                 </Stack>
-            </Box>
+            </Container>
         </Box>
     )
 }
