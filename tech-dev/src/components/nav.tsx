@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Link, Box, Flex, Text, Button, Stack, useColorMode, CloseButton, StackItem } from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Button, Stack, useColorMode, CloseButton, StackItem, Container } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons'
+import SearchBox from "./search";
+import { postsInterface } from "../lib/interfaces";
 
-const NavBar = (props: any) => {
+export default function NavBar({data}: postsInterface){
 
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
-
+    //console.log(data)
     return (
-        <NavBarContainer {...props}>
-            <Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}>tech.dev.br - compartilhe suas experiências</Link>
-            <MenuToggle toggle={toggle} isOpen={isOpen} />
-            <MenuLinks isOpen={isOpen} />
+        <NavBarContainer>
+            <Container maxW={"container.lg"} className="glass" padding={4}>
+                <Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}>tech.dev.br - Compartilhe suas experiências</Link>
+                <SearchBox data={data}></SearchBox>
+                <MenuToggle toggle={toggle} isOpen={isOpen} />
+                <MenuLinks isOpen={isOpen} />
+            </Container>
         </NavBarContainer>
     );
 };
@@ -21,8 +25,8 @@ const NavBar = (props: any) => {
 
 const MenuToggle = ({ toggle, isOpen }: any) => {
     return (
-        <Box display={{ base: "block", md: "none" }} onClick={toggle}>
-            {isOpen ? <CloseButton /> : <HamburgerIcon />}
+        <Box display={{ base: "block", md: "none" }} transition={"1000ms"} onClick={toggle}>
+            {isOpen ? <CloseButton size={"lg"} /> : <HamburgerIcon />}
         </Box>
     );
 };
@@ -33,6 +37,7 @@ const MenuLinks = ({ isOpen }: any) => {
     return (
         <Box
             display={{ base: isOpen ? "block" : "none", md: "block" }}
+            transition={"200ms"}
             flexBasis={{ base: "100%", md: "auto" }}
         >
             <Stack
@@ -46,7 +51,7 @@ const MenuLinks = ({ isOpen }: any) => {
                     rel="noopener noreferrer" _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}><span>&gt;</span> Sobre</Link></StackItem>
                 <StackItem><Link href='https://github.com/fortmea/tech.dev' w={"100%"} target="_blank"
                     rel="noopener noreferrer" _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}><span className="animate" >&gt;</span> Contribua</Link></StackItem>
-                <StackItem><Button w={"100%"} _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary", transition:"200ms"}} padding={3} onClick={toggleColorMode} >
+                <StackItem><Button w={"100%"} _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary", transition: "200ms" }} padding={3} onClick={toggleColorMode} >
                     {colorMode === 'light' ? '🌙' : '☀️'}
                 </Button></StackItem>
 
@@ -71,5 +76,3 @@ const NavBarContainer = ({ children, ...props }: any) => {
         </Flex>
     );
 };
-
-export default NavBar;
