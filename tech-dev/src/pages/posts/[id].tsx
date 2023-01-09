@@ -7,7 +7,7 @@ import { getAllPostIds, getPostData, getSortedPostsData } from "../../lib/posts"
 import ReactMarkdown from 'react-markdown'
 export default function Post(data: postData) {
     const dados: postData = data.data!!
-    
+
     return (<>
         <Head>
             <title>{`${dados.titulo} - tech.dev.br`}</title>
@@ -16,7 +16,7 @@ export default function Post(data: postData) {
         <Container maxW={"container.lg"} padding="8" className="glass" marginBottom="8">
             <Stack>
                 <Text>{dados.titulo}</Text>
-                <ReactMarkdown children={dados.contentMD!!} />
+                <ReactMarkdown>{dados.contentMD!!}</ReactMarkdown>
                 <UserInfo login={dados.autor!!} />
             </Stack>
         </Container>
