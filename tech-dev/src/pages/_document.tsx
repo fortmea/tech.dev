@@ -7,7 +7,7 @@ export default function Document() {
     <Html lang="pt">
       <Head>
         
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
