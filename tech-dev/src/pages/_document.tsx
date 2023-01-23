@@ -6,6 +6,8 @@ export default function Document() {
   return (
     <Html lang="pt">
       <Head>
+        
+        <link rel="icon" href="/favicon.ico" />
       <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
