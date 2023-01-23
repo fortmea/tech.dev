@@ -5,7 +5,9 @@ export default function Document() {
   
   return (
     <Html lang="pt">
-      <Head></Head>
+      <Head>
+      <link rel="manifest" href="/manifest.json" />
+      </Head>
       <body>
       <ColorModeScript initialColorMode={'light'} />
         <Main />
