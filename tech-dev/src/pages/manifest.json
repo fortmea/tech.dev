@@ -1,0 +1,15 @@
+{
+    "name": "tech.dev.br - compartilhe sua experiência",
+    "short_name": "tech.dev.br",
+    "lang": "pt-BR",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#1a1919",
+    "icons": [
+      {
+        "src": "rc/public/images/brazil-flag-round-icon-256.png",
+        "sizes": "256x256"
+      }
+    ],
+    "background_color": "#1a1919"
+  }

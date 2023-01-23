@@ -1,0 +1,15 @@
+{
+    "name": "tech.dev.br - Compartilhe suas experiências e aprendizados",
+    "short_name": "tech.dev.br",
+    "lang": "pt-BR",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#fff",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "sizes": "256x256"
+      }
+    ],
+    "background_color": "#fff"
+  }
