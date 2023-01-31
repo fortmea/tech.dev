@@ -57,7 +57,7 @@ const MenuLinks = ({ isOpen }: any) => {
             >
                 <StackItem><Link href='https://github.com/fortmea/tech.dev/blob/main/README.md' w={"100%"} target="_blank"
                     rel="noopener noreferrer" _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}><span>&gt;</span> Sobre</Link></StackItem>
-                <StackItem><Link href='https://github.com/fortmea/tech.dev' w={"100%"} target="_blank"
+                <StackItem><Link href='/posts/contribuindo/' w={"100%"} target="_blank"
                     rel="noopener noreferrer" _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}><span className="animate" >&gt;</span> Contribua</Link></StackItem>
                 <StackItem><Button w={"100%"} _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary", transition: "200ms" }} padding={3} onClick={toggleColorMode} >
                     {colorMode === 'light' ? '🌙' : '☀️'}
