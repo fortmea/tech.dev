@@ -13,14 +13,14 @@ export default function Post(data: postData) {
             <title>{`${dados.titulo} - tech.dev.br`}</title>
         </Head>
         <NavBar data={[]}></NavBar>
-        <Center>
-        <Container left={"auto"} right={"auto"} maxW={"container.lg"} centerContent={true} padding="8" className="glass" margin={8}>
-            <Stack>
-                <Text>{dados.titulo}</Text>
-                <ReactMarkdown>{dados.contentMD!!}</ReactMarkdown>
-                <UserInfo login={dados.autor!!} />
-            </Stack>
-        </Container>
+        <Center margin={8}>
+            <Container maxW={"container.lg"} padding="8" className="glass">
+                <Stack>
+                    <Heading size={"md"}>{dados.titulo}</Heading>
+                    <ReactMarkdown className="mdstyle">{dados.contentMD!!}</ReactMarkdown>
+                    <UserInfo login={dados.autor!!} />
+                </Stack>
+            </Container>
         </Center>
     </>
     )
