@@ -13,7 +13,7 @@ export default function NavBar({ data }: postsInterface) {
         setTitle(document.title.replace(" - tech.dev.br", ""))
     }, [0])
     return (
-        <Container maxW={"container.lg"} padding={4} marginTop={"16px"}>
+        <Container maxW={"container.lg"} className="disable-text-selection" padding={4} marginTop={"16px"}>
 
             {data.length > 0 ?
                 < Link href='/' _hover={{ backgroundColor: "secondary", textShadow: "1px 1px", textColor: "primary" }} padding={"1"}> tech.dev.br - Compartilhe suas experiências

@@ -1,4 +1,4 @@
-import { Container, Heading, Stack, Text } from "@chakra-ui/react"
+import { Center, Container, Heading, Stack, Text } from "@chakra-ui/react"
 import Head from "next/head"
 import UserInfo from "../../components/github"
 import NavBar from "../../components/nav"
@@ -13,13 +13,15 @@ export default function Post(data: postData) {
             <title>{`${dados.titulo} - tech.dev.br`}</title>
         </Head>
         <NavBar data={[]}></NavBar>
-        <Container maxW={"container.lg"} padding="8" className="glass" marginBottom="8">
+        <Center>
+        <Container left={"auto"} right={"auto"} maxW={"container.lg"} centerContent={true} padding="8" className="glass" margin={8}>
             <Stack>
                 <Text>{dados.titulo}</Text>
                 <ReactMarkdown>{dados.contentMD!!}</ReactMarkdown>
                 <UserInfo login={dados.autor!!} />
             </Stack>
         </Container>
+        </Center>
     </>
     )
 
